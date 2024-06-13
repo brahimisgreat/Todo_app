@@ -1,0 +1,17 @@
+.header {
+  display: flex;
+  width: 327px;
+  height: 48px;
+  border: solid red;
+  justify-content: space-between;
+}
+
+.header .todo {
+  width: 109px;
+  height: 20px;
+}
+
+.header .moon {
+  width: 19.317px;
+  height: 20px;
+}
