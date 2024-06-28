@@ -1,0 +1,25 @@
+.todo {
+
+
+  div {
+    width: 20px;
+    height: 20px;
+  }
+
+  .H-checked, .H-unchecked {
+    font-family: "Josefin Sans";
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -0.167px;
+  }
+  .H-checked{
+    text-decoration: line-through;
+    color: #d1d2da;
+  }
+    .H-unchecked{
+        color: #494C6B;
+    }
+  
+}

@@ -1,17 +1,15 @@
 .header {
   display: flex;
-  width: 327px;
-  height: 48px;
-  border: solid red;
-  justify-content: space-between;
+  gap: 12.25rem;
 }
 
 .header .todo {
-  width: 109px;
-  height: 20px;
+  width: 6.8125rem;
+  height: 1.25rem;
 }
 
 .header .moon {
-  width: 19.317px;
-  height: 20px;
+  width: 1.2073125rem;
+  height: 1.25rem;
+  background-color: transparent;
 }
