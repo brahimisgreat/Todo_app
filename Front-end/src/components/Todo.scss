@@ -1,6 +1,15 @@
 .todo {
 
-
+  width: 20.4375rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  background-color: white;
+  justify-content:space-around;
+  border-radius: 5px;
+  background: #fff;
+  box-shadow: 0px 35px 50px -15px rgba(194, 195, 214, 0.5);
+  
   div {
     width: 20px;
     height: 20px;

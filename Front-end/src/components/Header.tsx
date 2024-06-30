@@ -6,7 +6,7 @@ import "./Header.css";
 export const Header = () => {
   return (
     <div className="header">
-      <div className="todo">
+      <div className="todo-container">
         <img id="" src={todo} />
       </div>
       <div className="moon">
