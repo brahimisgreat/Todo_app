@@ -17,20 +17,40 @@ const db = mysql.createConnection({
     database:"mytodo"
 });
 
+db.connect((err=>{
+    if(err) throw err;
+    console.log('Connected to database')
+}))
+
 app.get('/', (req, res)=>{
    return res.json('Hello World')
 })
 
-app.get('/todos', (req,res)=>{
-    const sql = "SELECT * FROM todos";
-    db.query(sql, (err, data)=>{
+app.post('/create', (req, res)=>{
+    const task = req.body.title;
+    const sql = "INSERT INTO todos (task) VALUES (?)";
+    db.query(sql, task, (err)=>{
         if(err){
             console.log(err)
         }else{
-            res.json(data)
+            res.json('Task added')
         }
     })
+
 })
+
+app.get('/read', (req, res)=>{
+    const sql = "SELECT * FROM todos";
+    db.query(sql, (err, result)=>{
+        if(err){
+            console.log(err)
+        }else{
+            res.json(result)
+        }
+    })
+}
+)
+  
 
 app.listen(port, ()=>{
     console.log('listening')
