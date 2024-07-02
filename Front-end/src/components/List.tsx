@@ -7,7 +7,7 @@ export const List = () => {
   const [list, setList] = useState<{ Task: string, todo_id:number }[]>([])
 
   useEffect(() => {
-    fetch('http://localhost:5000/todos')
+    fetch('http://localhost:5000/read')
     .then(response => response.json())
     .then(data => {
       setList(data);
