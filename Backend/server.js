@@ -27,20 +27,20 @@ app.get('/', (req, res)=>{
 })
 
 app.post('/create', (req, res)=>{
-    const task = req.body.title;
-    const sql = "INSERT INTO todos (task) VALUES (?)";
-    db.query(sql, task, (err)=>{
+    const task = req.body.task;
+    const sql = "INSERT INTO todolist (task) VALUES (?)";
+    db.query(sql, task, (err, result)=>{
         if(err){
             console.log(err)
         }else{
             res.json('Task added')
         }
     })
-
 })
 
+
 app.get('/read', (req, res)=>{
-    const sql = "SELECT * FROM todos";
+    const sql = "SELECT * FROM todolist";
     db.query(sql, (err, result)=>{
         if(err){
             console.log(err)
@@ -50,6 +50,18 @@ app.get('/read', (req, res)=>{
     })
 }
 )
+
+app.delete('/delete/:id', (req, res)=>{
+    const id = req.params.id;
+    const sql = "DELETE FROM todolist WHERE id = ?";
+    db.query(sql, id, (err, result)=>{
+        if(err){
+            console.log(err)
+        }else{
+            res.json('Task deleted')
+        }
+    })
+})
   
 
 app.listen(port, ()=>{

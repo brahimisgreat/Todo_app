@@ -15,12 +15,13 @@ export const List = () => {
     })
   }, [])
 
+  
 
 
   return (
     <div className='list'>
       {list.map((e)=>{
-        return <div key={e.todo_id}>{e.Task} <img src={cross} /> </div>
+        return <div key={e.id} >{e.task} <img  src={cross} /> </div>
       })}
       
     </div>
