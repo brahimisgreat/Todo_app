@@ -1,5 +1,6 @@
 import './CreateTodo.scss'
 import { useState } from 'react'
+import  circle from '../assets/images/circle.svg'
 
 export const CreateTodo = () => {
 
@@ -29,7 +30,7 @@ export const CreateTodo = () => {
   return (
     <div className='createTodo'>
         <form onSubmit={handleSubmit}>
-            <button type='submit'><div></div></button>
+            <img src={circle} />
             <input type='text' placeholder='Create a new todo...' value={todo} onChange={(e)=> {setTodo(e.target.value)}} />
         </form>
 
