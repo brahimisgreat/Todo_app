@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import cross from "../assets/images/icon-cross.svg";
 import circle from "../assets/images/circle.svg";
+import axios from "axios";
 
 import "./List.scss";
 
@@ -18,6 +19,18 @@ export const List = () => {
       });
   }, []);
 
+  function handleDelete(id: number) {
+    axios.delete(`http://localhost:5000/delete/${id}`)
+    .then((response) => {
+      window.location.reload();
+      console.log(response);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+  }
+    
+
   return (
     <div className="list">
       {list.map((e) => {
@@ -27,7 +40,7 @@ export const List = () => {
             <p>
               {e.task} 
             </p>
-              <img className="cross" src={cross} />
+              <img className="cross" onClick={() => handleDelete(e.id)} src={cross} />
           </div>
         );
       })}

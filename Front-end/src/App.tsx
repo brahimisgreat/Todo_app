@@ -1,13 +1,11 @@
 import "./App.scss";
 import bg from "./assets/images/bg-mobile-light.jpg";
 import { CreateTodo } from "./components/CreateTodo";
+import { Filters } from "./components/Filters";
 import { Header } from "./components/Header";
 import { List } from "./components/List";
-import { Todo } from "./components/Todo";
-import { useState } from "react";
 
 function App() {
-  const [checked, setChecked] = useState(false);
   return (
     <div className="app">
       <div className="hero">
@@ -16,7 +14,8 @@ function App() {
       <div className="content">
         <Header />
         <CreateTodo />
-        <List checked={checked} setChecked={setChecked} />
+        <List   />
+        <Filters />
       </div>
     </div>
   );
