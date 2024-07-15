@@ -1,10 +1,8 @@
-const express = require('express');
-const mysql = require('mysql');
-const cors = require('cors');
-const path = require('path');
+import express from 'express';
+import cors from 'cors';
+import mysql from 'mysql';
 
 const app = express();
-app.use(express.static(path.join(__dirname, 'public')));
 app.use(cors());
 app.use(express.json());
 
@@ -14,7 +12,7 @@ const db = mysql.createConnection({
     host:"localhost",
     user:"root",
     password:"123",
-    database:"mytodo"
+    database:"todo"
 });
 
 db.connect((err=>{
@@ -27,20 +25,20 @@ app.get('/', (req, res)=>{
 })
 
 app.post('/create', (req, res)=>{
-    const task = req.body.task;
-    const sql = "INSERT INTO todolist (task) VALUES (?)";
-    db.query(sql, task, (err, result)=>{
+    const task = req.params.task;
+    db.query('INSERT INTO todotasks (task) VALUES (?)',  [task], (err, result)=>{
         if(err){
             console.log(err)
         }else{
             res.json('Task added')
         }
-    })
-})
+    });
+});
+
 
 
 app.get('/read', (req, res)=>{
-    const sql = "SELECT * FROM todolist";
+    const sql = "SELECT * FROM todotasks";
     db.query(sql, (err, result)=>{
         if(err){
             console.log(err)
@@ -53,7 +51,7 @@ app.get('/read', (req, res)=>{
 
 app.delete('/delete/:id', (req, res)=>{
     const id = req.params.id;
-    const sql = "DELETE FROM todolist WHERE id = ?";
+    const sql = "DELETE FROM todotasks WHERE id = ?";
     db.query(sql, id, (err, result)=>{
         if(err){
             console.log(err)

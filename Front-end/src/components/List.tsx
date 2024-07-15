@@ -6,17 +6,15 @@ import axios from "axios";
 import "./List.scss";
 
 export const List = () => {
-  const [list, setList] = useState<{ Task: string; todo_id: number }[]>([]);
+  const [list, setList] = useState([]);
   const [items, setItems] = useState<number>(0);
 
   useEffect(() => {
-    fetch("http://localhost:5000/read")
-      .then((response) => response.json())
-      .then((data) => {
-        setList(data);
-        console.log(data);
-        setItems(data.length);
-      });
+    axios.get("http://localhost:5000/read")
+    .then((response) => {
+      setList(response.data);
+      setItems(response.data.length);
+    })
   }, []);
 
   function handleDelete(id: number) {
