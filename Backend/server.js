@@ -12,7 +12,7 @@ const db = mysql.createConnection({
     host:"localhost",
     user:"root",
     password:"123",
-    database:"todo"
+    database:"mytodo"
 });
 
 db.connect((err=>{
@@ -25,20 +25,21 @@ app.get('/', (req, res)=>{
 })
 
 app.post('/create', (req, res)=>{
-    const task = req.params.task;
-    db.query('INSERT INTO todotasks (task) VALUES (?)',  [task], (err, result)=>{
+    const task = req.body.todo;
+    const sql = `INSERT INTO todotasks (task) VALUES (brahim)`;
+    db.query(sql, task, (err, result)=>{
         if(err){
             console.log(err)
         }else{
             res.json('Task added')
         }
-    });
-});
+    })
+})
 
 
 
 app.get('/read', (req, res)=>{
-    const sql = "SELECT * FROM todotasks";
+    const sql = "SELECT * FROM todolist";
     db.query(sql, (err, result)=>{
         if(err){
             console.log(err)
@@ -51,7 +52,7 @@ app.get('/read', (req, res)=>{
 
 app.delete('/delete/:id', (req, res)=>{
     const id = req.params.id;
-    const sql = "DELETE FROM todotasks WHERE id = ?";
+    const sql = "DELETE FROM todolist WHERE id = ?";
     db.query(sql, id, (err, result)=>{
         if(err){
             console.log(err)
