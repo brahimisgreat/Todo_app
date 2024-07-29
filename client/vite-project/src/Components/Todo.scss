@@ -1,0 +1,45 @@
+.todo {
+  width: 20.4375rem;
+  height: 3rem;
+  border-radius: 0.3125rem;
+  background: #fff;
+  box-shadow: 0px 35px 50px -15px rgba(194, 195, 214, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: solid 1px #e3e4f1;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  img {
+    margin-left: 1rem;
+  }
+
+  .crossOut,
+  .normal {
+    width: 13.4375rem;
+    color: #494c6b;
+    font-family: "Josefin Sans";
+    font-size: 0.75rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -0.167px;
+  }
+
+  .crossOut {
+    color: #d1d2da;
+    font-family: "Josefin Sans";
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -0.167px;
+  }
+
+  .x {
+    margin-right: 1rem;
+    width: 0.75rem;
+    height: 0.75rem;
+  }
+}

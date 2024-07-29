@@ -2,9 +2,11 @@ import React from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { Todo } from "./Todo";
+import "./List.scss";
 
 export const List = () => {
   const [todos, setTodos] = useState([]);
+  const [items, setItems] = useState(0);
 
   useEffect(() => {
     axios
@@ -12,18 +14,28 @@ export const List = () => {
       .then((res) => {
         console.log(res);
         setTodos(res.data);
+        setItems(res.data.length);
       })
       .catch((err) => {
         console.log(err);
       });
   }, []);
 
-  return <div>
-
-    {todos.map((todo)=> {
-        return <div key={todo.id}>
-            <Todo task={todo.item} id={todo.id} />
-        </div>
-    })}
-  </div>;
+  return (
+    <div className="list">
+      <div className="tasks">
+        {todos.map((todo) => {
+          return (
+            <div key={todo.id}>
+              <Todo task={todo.item} id={todo.id} />
+            </div>
+          );
+        })}
+      </div>
+      <div className="items">
+        <p>{items} items left</p>
+        <button>Clear Completed</button>
+      </div>
+    </div>
+  );
 };
