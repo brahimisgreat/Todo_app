@@ -6,15 +6,14 @@ import circle from "../assets/assets/circle.svg";
 export const Create = () => {
   const [task, setTask] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    axios
+   await axios
       .post("http://localhost:3000/create/", { item: task })
       .then((res) => {
+        setTask("");
         console.log(res);
-      })
-      .catch((err) => {
-        console.log(err);
+        window.location.reload();
       });
   };
 

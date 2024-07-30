@@ -12,7 +12,6 @@ export const List = () => {
     axios
       .get("http://localhost:3000/tasks")
       .then((res) => {
-        console.log(res);
         setTodos(res.data);
         setItems(res.data.length);
       })
@@ -27,7 +26,7 @@ export const List = () => {
         {todos.map((todo) => {
           return (
             <div key={todo.id}>
-              <Todo task={todo.item} id={todo.id} />
+              <Todo task={todo.item} ids={todo.id} />
             </div>
           );
         })}

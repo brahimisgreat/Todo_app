@@ -35,6 +35,16 @@ app.get('/tasks', (req, res)=> {
     })
 })
 
+app.delete('/delete/:id', (req, res) => {
+    const id = req.params.id;
+    const sql = 'DELETE FROM tas WHERE id = ?';
+    db.query(sql, id, (err, result) => {
+        if (err) throw err;
+        res.send(result);
+})
+})
+
+
 app.post('/create', (req, res) => {
     const sql = "INSERT INTO tas (item) VALUES (?)";
     db.query(sql, req.body.item, (err, result) => {
@@ -43,13 +53,7 @@ app.post('/create', (req, res) => {
 });
 })
 
-app.delete('/delete/:id', (req, res) => {
-    const sql = "DELETE FROM tas WHERE id = ?";
-    db.query(sql, req.params.id, (err, result) => {
-        if (err) throw err;
-        res.send(result);
-    })
-})
+
 
 
 
