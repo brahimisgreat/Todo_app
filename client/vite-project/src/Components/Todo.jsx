@@ -26,7 +26,7 @@ export const Todo = ({task, ids}) => {
     // }
   return (
     <div className='todo'>
-        {checked ? <img src={check} alt='check' onClick={handleClick} /> : <img src={circle} onClick={handleClick} />}
+        {checked ?  <img className='check' src={check} alt='check' onClick={handleClick} /> : <img className='circle' src={circle} onClick={handleClick} />}
         {checked ?<p className='crossOut'><s>{task}</s></p> : <p className='normal'>{task}</p>}
         <img className='x' src={cross} alt='cross' onClick={()=> handleDelete(ids)}  />
     </div>

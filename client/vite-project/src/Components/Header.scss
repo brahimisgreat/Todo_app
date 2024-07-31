@@ -1,5 +1,24 @@
-header{
+header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 700px) {
+  header {
     display: flex;
-    justify-content: space-between;
-    margin-bottom: 1rem;
+    align-items: center;
+    width: 33.8125rem;
+    margin-bottom: 3rem;
+  }
+
+  .todo-img {
+    width: 10.4375rem;
+    height: 2.5rem;
+  }
+
+  .moon {
+    width: 1.3820625rem;
+    height: 1.625rem;
+  }
 }

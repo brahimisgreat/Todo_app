@@ -5,8 +5,8 @@ import "./Header.scss";
 export const Header = () => {
   return (
     <header>
-      <img src={todo} alt="todo" />
-      <img src={moon} alt="moon" />
+      <img className="todo-img" src={todo} alt="todo" />
+      <img  className='moon' src={moon} alt="moon" />
     </header>
   );
 };

@@ -43,3 +43,26 @@
     height: 0.75rem;
   }
 }
+
+.check:hover, .crossOut:hover, .normal:hover, .x:hover , .circle:hover {
+  cursor: pointer;
+} 
+
+@media (min-width: 700px) {
+  .todo {
+    width: 100%;
+    height: 4rem;
+  }
+
+  .crossOut,
+  .normal {
+    margin-left: -12rem;
+    font-size: 18px;
+    letter-spacing: -0.25px;
+  }
+
+  .x{
+    width: 1.125rem;
+    height: 1.125rem;
+  }
+}

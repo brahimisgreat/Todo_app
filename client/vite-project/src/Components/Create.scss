@@ -23,4 +23,23 @@
     line-height: normal;
     letter-spacing: -0.167px;
   }
+
+  input:focus {
+    outline: none;
+  }
+}
+
+@media (min-width: 700px) {
+  .create {
+    width: 33.75rem;
+    height: 4rem;
+    margin-bottom: 1.5rem;
+  }
+
+  input, input::placeholder{
+    font-size: 18px;
+    letter-spacing: -0.25px;
+    height: 18px;
+
+  }
 }
