@@ -1,12 +1,14 @@
-import React from "react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import { Todo } from "./Todo";
 import "./List.scss";
-
+import { themeContext } from "./Themecontext";
+import { Link } from "react-router-dom";
 export const List = () => {
   const [todos, setTodos] = useState([]);
   const [items, setItems] = useState(0);
+
+  const { darkMode } = useContext(themeContext);
 
   useEffect(() => {
     axios
@@ -31,8 +33,13 @@ export const List = () => {
           );
         })}
       </div>
-      <div className="items">
+      <div className={darkMode ? "itemsDark" : "items"}>
         <p>{items} items left</p>
+        <div>
+          <Link to="/">All</Link>
+          <Link to="active">Active</Link>
+          <Link to="completed">Completed</Link>
+        </div>
         <button>Clear Completed</button>
       </div>
     </div>

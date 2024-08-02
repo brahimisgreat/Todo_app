@@ -13,7 +13,7 @@
     margin-left: 1rem;
   }
 
-  input {
+  .input {
     border: none;
     color: #9495a5;
     font-family: "Josefin Sans";
@@ -24,22 +24,67 @@
     letter-spacing: -0.167px;
   }
 
-  input:focus {
+  .input:focus {
     outline: none;
   }
 }
+//Dark Mode////////////////////////////////////////////////
+.createDark {
+  width: 20.4375rem;
+  height: 3rem;
+  border-radius: 0.3125rem;
+  background: #25273d;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  box-shadow: 0px 35px 50px -15px rgba(0, 0, 0, 0.5);
+  gap: 1rem;
 
+  img {
+    margin-left: 1rem;
+    width: 20px;
+    height: 20px;
+  }
+
+  .inputDark {
+    background-color: transparent;
+    border: none;
+    color: #C8CBE7;
+  }
+
+  .inputDark:focus {
+    outline: none;
+    color: #C8CBE7;
+  }
+}
+
+.input {
+  border: none;
+  color: #9495a5;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -0.167px;
+}
+
+//Media Queries For Desktop/////////////////////////////////////////////////
 @media (min-width: 700px) {
-  .create {
-    width: 33.75rem;
+  .createDark, .create {
+    width: 100%;
     height: 4rem;
     margin-bottom: 1.5rem;
   }
 
-  input, input::placeholder{
+  .input,
+  .input::placeholder {
     font-size: 18px;
     letter-spacing: -0.25px;
-    height: 18px;
+    height: 22px;
+    width: 300px;
+  }
 
+  .input:focus {
+    font-size: 18px;
   }
 }
