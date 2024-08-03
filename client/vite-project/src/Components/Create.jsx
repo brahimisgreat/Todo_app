@@ -5,12 +5,13 @@ import circle from "../assets/assets/circle.svg";
 import { useContext } from "react";
 import { themeContext } from "./Themecontext";
 import circleDark from '../assets/assets/Oval Copy.svg'
-import { Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export const Create = () => {
   const [task, setTask] = useState("");
 
   const {darkMode} = useContext(themeContext);
+  const Navigate = useNavigate()
 
   const handleSubmit =  (e) => {
     e.preventDefault();
@@ -23,7 +24,7 @@ export const Create = () => {
       .catch((err) => {
         console.log(err);
       });
-      Navigate('/active')
+      Navigate('/')
   };
 
   return (
