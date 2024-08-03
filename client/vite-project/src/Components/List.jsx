@@ -16,11 +16,26 @@ export const List = () => {
       .then((res) => {
         setTodos(res.data);
         setItems(res.data.length);
+
+        console.log(res.data);
+        console
       })
       .catch((err) => {
         console.log(err);
       });
   }, []);
+
+
+  function ClearCompleted(){
+    axios.delete('http://localhost:3000/clearCompleted')
+    .then(res => {
+      console.log(res)
+      window.location.reload()
+    }).catch(err => {
+      console.log(err)
+    })
+  }
+
 
   return (
     <div className="list">
@@ -28,19 +43,19 @@ export const List = () => {
         {todos.map((todo) => {
           return (
             <div key={todo.id}>
-              <Todo task={todo.item} ids={todo.id} />
+              <Todo todos={todos} task={todo.item} ids={todo.id} completed={todo.Completed}  />
             </div>
           );
         })}
       </div>
       <div className={darkMode ? "itemsDark" : "items"}>
         <p>{items} items left</p>
-        <div>
+        <div className='links'>
           <Link to="/">All</Link>
-          <Link to="active">Active</Link>
-          <Link to="completed">Completed</Link>
+          <Link to="/active">Active</Link>
+          <Link to="/completed">Completed</Link>
         </div>
-        <button>Clear Completed</button>
+        <button  onClick={ClearCompleted}>Clear Completed</button>
       </div>
     </div>
   );

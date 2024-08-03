@@ -5,21 +5,25 @@ import circle from "../assets/assets/circle.svg";
 import { useContext } from "react";
 import { themeContext } from "./Themecontext";
 import circleDark from '../assets/assets/Oval Copy.svg'
+import { Navigate } from "react-router-dom";
 
 export const Create = () => {
   const [task, setTask] = useState("");
 
   const {darkMode} = useContext(themeContext);
 
-  const handleSubmit = async (e) => {
+  const handleSubmit =  (e) => {
     e.preventDefault();
-   await axios
+     axios
       .post("http://localhost:3000/create/", { item: task })
       .then((res) => {
         setTask("");
-        console.log(res);
         window.location.reload();
+      })
+      .catch((err) => {
+        console.log(err);
       });
+      Navigate('/active')
   };
 
   return (

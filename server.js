@@ -46,7 +46,7 @@ app.delete('/delete/:id', (req, res) => {
 
 
 app.post('/create', (req, res) => {
-    const sql = "INSERT INTO tas (item) VALUES (?)";
+    const sql = "INSERT INTO tas (item ,Completed) VALUES (?, 0)";
     db.query(sql, req.body.item, (err, result) => {
         if (err) throw err;
         res.send(result);
@@ -86,6 +86,14 @@ app.get('/allCompleted', (req, res) => {
 
 app.get('/allActive', (req, res) => {
     const sql = 'SELECT * FROM tas WHERE completed = 0';
+    db.query(sql, (err, result) => {
+        if (err) throw err;
+        res.send(result);
+})
+})
+
+app.delete('/clearCompleted', (req, res) => {
+    const sql = 'DELETE FROM tas WHERE completed = 1';
     db.query(sql, (err, result) => {
         if (err) throw err;
         res.send(result);
