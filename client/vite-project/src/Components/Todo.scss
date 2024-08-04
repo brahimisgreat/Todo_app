@@ -1,0 +1,129 @@
+.todo {
+  width: 20.4375rem;
+  height: 3rem;
+  border-radius: 0.3125rem;
+  background: #fff;
+  box-shadow: 0px 35px 50px -15px rgba(194, 195, 214, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: solid 1px #e3e4f1;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+
+  img {
+    margin-left: 1rem;
+  }
+
+  .crossOut,
+  .normal {
+    width: 13.4375rem;
+    color: #494c6b;
+    font-family: "Josefin Sans";
+    font-size: 0.75rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -0.167px;
+  }
+
+  .crossOut {
+    color: #d1d2da;
+    font-family: "Josefin Sans";
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -0.167px;
+  }
+
+  .x {
+    margin-right: 1rem;
+    width: 0.75rem;
+    height: 0.75rem;
+  }
+}
+
+//Darkmode///////////////////////////////////////////////////
+
+.todoDark {
+  width: 20.4375rem;
+  height: 3rem;
+  border-radius: 0.3125rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: solid 1px #393a4b;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-radius: 5px;
+  background: #25273d;
+  box-shadow: 0px 35px 50px -15px rgba(0, 0, 0, 0.5);
+
+  img {
+    margin-left: 1rem;
+    width: 20px;
+    height: 20px;
+  }
+
+  .crossOut,
+  .normal {
+    width: 13.4375rem;
+    color: #494c6b;
+    font-family: "Josefin Sans";
+    font-size: 0.75rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -0.167px;
+  }
+
+  .normal{
+    color: #C8CBE7;
+  }
+
+  .x {
+    margin-right: 1rem;
+    width: 0.75rem;
+    height: 0.75rem;
+  }
+}
+
+.check:hover,
+.crossOut:hover,
+.normal:hover,
+.x:hover,
+.circle:hover {
+  cursor: pointer;
+}
+
+@media (min-width: 700px) {
+  .todo {
+    width: 100%;
+    height: 4rem;
+
+    img{
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  .todoDark {
+    width: 100%;
+    height: 4rem;
+  }
+
+  .crossOut,
+  .normal {
+    margin-left: -12rem;
+    font-size: 18px;
+    letter-spacing: -0.25px;
+  }
+
+  .x {
+    width: 1.125rem;
+    height: 1.125rem;
+  }
+}
