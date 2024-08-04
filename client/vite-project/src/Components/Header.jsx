@@ -2,7 +2,7 @@ import todo from "../assets/assets/todo.svg";
 import moon from "../assets/assets/icon-moon.svg";
 import "./Header.scss";
 import sun from '../assets/assets/icon-sun.svg'
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { themeContext } from "./Themecontext";
 
 
@@ -10,10 +10,16 @@ export const Header = () => {
   const {darkMode} = useContext(themeContext);
   const {setDarkMode} = useContext(themeContext);
 
-console.log(darkMode)
+ 
   function handleClick() {
     setDarkMode(!darkMode)
+    console.log(localStorage)
+    localStorage.getItem('darkMode')
   }
+
+  
+
+  
 
   return (
     <header>

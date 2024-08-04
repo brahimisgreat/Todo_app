@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.scss";
 import { Create } from "./Components/Create";
 import bgL from "../src/assets/assets/bg-mobile-light.jpg";
@@ -12,12 +12,17 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Active } from "./Components/Active";
 import { Completed } from "./Components/Completed";
 
+const darkModeFromLocalStorage = JSON.parse(localStorage.getItem("darkMode") || false);
+
 function App() {
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(darkModeFromLocalStorage);
+
+  useEffect(() => {
+    localStorage.setItem("darkMode", JSON.stringify(darkMode));
+  }, [darkMode]);
 
   return (
     <BrowserRouter>
-
     <themeContext.Provider value={{ darkMode, setDarkMode }}>
     <div className={darkMode? 'dad' : 'mom'}>
       <div className="app">
