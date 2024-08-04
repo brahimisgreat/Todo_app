@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect, useContext, useRef } from "react";
 import axios from "axios";
 import { Todo } from "./Todo";
 import "./List.scss";
@@ -25,6 +25,18 @@ export const List = () => {
       });
   }, []);
 
+  const dragTask = useRef(0);
+  const dragOverTask = useRef(0);
+
+  function handleSort(){
+    const taskClone = [...todos]
+    const temp = taskClone[dragTask.current]
+    taskClone[dragTask.current] = taskClone[dragOverTask.current]
+    taskClone[dragOverTask.current] = temp
+    setTodos(taskClone)
+  }
+
+
 
   function ClearCompleted(){
     axios.delete('http://localhost:3000/clearCompleted')
@@ -40,9 +52,9 @@ export const List = () => {
   return (
     <div className="list">
       <div className="tasks">
-        {todos.map((todo) => {
+        {todos.map((todo, index) => {
           return (
-            <div key={todo.id}>
+            <div key={todo.id} draggable  onDragStart={() => (dragTask.current = index)} onDragEnter={()=>(dragOverTask.current = index)} onDragEnd={handleSort} onDragOver={(e) => e.preventDefault()} >
               <Todo todos={todos} task={todo.item} ids={todo.id} completed={todo.Completed}  />
             </div>
           );
