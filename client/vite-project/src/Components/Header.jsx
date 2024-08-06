@@ -2,7 +2,7 @@ import todo from "../assets/assets/todo.svg";
 import moon from "../assets/assets/icon-moon.svg";
 import "./Header.scss";
 import sun from '../assets/assets/icon-sun.svg'
-import { useContext, useEffect } from "react";
+import { useContext, } from "react";
 import { themeContext } from "./Themecontext";
 
 

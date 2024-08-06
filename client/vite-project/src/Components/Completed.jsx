@@ -1,4 +1,3 @@
-import React from "react";
 import "./Completed.scss";
 import { useState, useEffect } from "react";
 import axios from "axios";
