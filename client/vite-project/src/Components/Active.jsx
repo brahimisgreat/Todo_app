@@ -1,4 +1,3 @@
-import React from 'react'
 import './Active.scss'
 import { useState, useEffect } from 'react'
 import axios from 'axios'

@@ -1,4 +1,4 @@
-import {useState, useEffect} from 'react'
+import {useState, } from 'react'
 import { useContext } from 'react'
 import { themeContext } from './Themecontext'
 import check from '../assets/assets/check.svg'
@@ -7,15 +7,21 @@ import circle from '../assets/assets/circle.svg'
 import axios from 'axios'
 import './Todo.scss'
 import circleDark from '../assets/assets/Oval Copy.svg'
-import {useNavigate } from 'react-router-dom'
 
-export const Todo = ({task, ids, todos, completed}) => {
+import PropTypes from 'prop-types';
+
+export const Todo = ({task, ids, completed}) => {
+  // Rest of the code
+
+Todo.propTypes = {
+  task: PropTypes.string.isRequired,
+  ids: PropTypes.number.isRequired,
+  completed: PropTypes.bool.isRequired,
+};
     const [checked, setChecked] = useState([])
-    const [data, setData] = useState([])
 
     const {darkMode} = useContext(themeContext)
 
-    const Navigate = useNavigate()
 
   
     

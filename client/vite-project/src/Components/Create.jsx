@@ -19,6 +19,7 @@ export const Create = () => {
       .post("http://localhost:3000/create/", { item: task })
       .then((res) => {
         setTask("");
+        console.log(res);
         window.location.reload();
       })
       .catch((err) => {
