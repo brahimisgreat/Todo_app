@@ -12,7 +12,7 @@ export const List = () => {
 
   useEffect(() => {
     axios
-      .get("https://todo-app-api-pied.vercel.app/tasks")
+      .get("http://localhost:3000/tasks")
       .then((res) => {
         setTodos(res.data);
         setItems(res.data.length);
